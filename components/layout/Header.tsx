@@ -1,4 +1,16 @@
+import { useEffect } from "react";
+
 const Header = () => {
+  useEffect(() => {
+    const navEl = document.querySelector("nav");
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 0) {
+        navEl?.classList.add("not-top");
+      } else {
+        navEl?.classList.remove("not-top");
+      }
+    });
+  }, []);
   return (
     <nav
       className="navbar navbar-expand-lg fixed-top py-3 backdrop"
